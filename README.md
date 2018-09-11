@@ -1,21 +1,11 @@
-# vue-demo
 
-> A Vue.js project
+#vuex使用module配置
+#axios添加拦截器 接口使用公共管理
 
-## Build Setup
+#组织架构
+  方案一: 使用echarts做树状图
+  方案二: 使用elementUI里面的树状图
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#角色授权 
+  elementUI里面的组件和需求不太符合 
+  checkBox自己封装的
