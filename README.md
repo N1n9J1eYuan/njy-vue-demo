@@ -1,7 +1,7 @@
 ---
-  title: vue项目配置
-  tags: vscode markdown
-  notebook: blogs
+title: vue项目配置
+tags: vscode markdown
+notebook: blogs
 ---
 
 # vue项目配置
