@@ -1,0 +1,411 @@
+{
+  "data": [
+    {
+      "checked": true,
+      "name": "网销销售管理",
+      "item": [
+        {
+          "name": "客户转移",
+          "item": [
+            {
+              "checked": true,
+              "name": "查询"
+            },
+            {
+              "checked": true,
+              "name": "转移"
+            },
+            {
+              "checked": true,
+              "name": "客户整体转移"
+            }
+          ]
+        },
+        {
+          "name": "业绩统计",
+          "item": [
+            {
+              "checked": true,
+              "name": "查询"
+            }
+          ]
+        },
+        {
+          "name": "业绩附加审批",
+          "item": [
+            {
+              "checked": true,
+              "name": "查看"
+            },
+            {
+              "checked": true,
+              "name": "审批"
+            }
+          ]
+        },
+        {
+          "name": "优惠券审批",
+          "item": [
+            {
+              "checked": true,
+              "name": "查看"
+            },
+            {
+              "checked": true,
+              "name": "审批"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "name": "网销客户管理",
+      "item": [
+        {
+          "name": "客户管理",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "添加客户"
+            },
+            {
+              "checked": false,
+              "name": "关联/创建朗播账号"
+            },
+            {
+              "checked": false,
+              "name": "添加练习记录"
+            },
+            {
+              "checked": false,
+              "name": "开通体验"
+            }
+          ]
+        },
+        {
+          "name": "我的业绩",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            }
+          ]
+        },
+        {
+          "name": "业绩附加申请",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "提交申请"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "name": "电销销售管理",
+      "item": [
+        {
+          "name": "销售人员排班",
+          "item": [
+            {
+              "checked": false,
+              "name": "排班/修改排班"
+            },
+            {
+              "checked": false,
+              "name": "添加目标业绩"
+            },
+            {
+              "checked": false,
+              "name": "编辑目标业绩"
+            }
+          ]
+        },
+        {
+          "name": "客户分配",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "导入"
+            },
+            {
+              "checked": false,
+              "name": "分配"
+            }
+          ]
+        },
+        {
+          "name": "客户转移",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "转移"
+            },
+            {
+              "checked": false,
+              "name": "客户整体转移"
+            }
+          ]
+        },
+        {
+          "name": "目标业绩",
+          "item": [
+            {
+              "checked": false,
+              "name": "保存"
+            }
+          ]
+        },
+        {
+          "name": "全部敏感行为客户",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            }
+          ]
+        },
+        {
+          "name": "数据统计",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            }
+          ]
+        },
+        {
+          "name": "业绩附加审核",
+          "item": [
+            {
+              "checked": false,
+              "name": "查看"
+            },
+            {
+              "checked": false,
+              "name": "审批"
+            }
+          ]
+        },
+        {
+          "name": "优惠券审批",
+          "item": [
+            {
+              "checked": false,
+              "name": "查看"
+            },
+            {
+              "checked": false,
+              "name": "审批"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "name": "电销客户管理",
+      "item": [
+        {
+          "name": "我的客户",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "外呼"
+            },
+            {
+              "checked": false,
+              "name": "联系记录"
+            },
+            {
+              "checked": false,
+              "name": "开通"
+            },
+            {
+              "checked": false,
+              "name": "批量导出"
+            }
+          ]
+        },
+        {
+          "name": "主动咨询客户",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "查询反馈/未联系"
+            },
+            {
+              "checked": false,
+              "name": "开通体验"
+            }
+          ]
+        },
+        {
+          "name": "通话统计",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            }
+          ]
+        },
+        {
+          "name": "销售业绩",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            }
+          ]
+        },
+        {
+          "name": "业绩附加申请",
+          "item": [
+            {
+              "checked": false,
+              "name": "申请"
+            },
+            {
+              "checked": false,
+              "name": "提交申请"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "name": "日志监控",
+      "item": [
+        {
+          "name": "销售日记",
+          "item": [
+            {
+              "checked": false,
+              "name": "弹窗提示报错"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "name": "系统设置",
+      "item": [
+        {
+          "name": "系统管理",
+          "item": [
+            {
+              "checked": false,
+              "name": "设置"
+            },
+            {
+              "checked": false,
+              "name": "添加角色"
+            },
+            {
+              "checked": false,
+              "name": "编辑"
+            },
+            {
+              "checked": false,
+              "name": "授权"
+            },
+            {
+              "checked": false,
+              "name": "删除"
+            }
+          ]
+        },
+        {
+          "name": "销售人员管理",
+          "item": [
+            {
+              "checked": false,
+              "name": "添加销售人员"
+            },
+            {
+              "checked": false,
+              "name": "停用 / 启用"
+            },
+            {
+              "checked": false,
+              "name": "编辑销售人员"
+            },
+            {
+              "checked": false,
+              "name": "删除"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "name": "销售运营管理",
+      "item": [
+        {
+          "name": "主动咨询客户",
+          "item": [
+            {
+              "checked": false,
+              "name": "查询"
+            },
+            {
+              "checked": false,
+              "name": "添加客户"
+            },
+            {
+              "checked": false,
+              "name": "联系反馈"
+            }
+          ]
+        },
+        {
+          "name": "批量操作用户",
+          "item": [
+            {
+              "checked": false,
+              "name": "导入"
+            },
+            {
+              "checked": false,
+              "name": "导出"
+            },
+            {
+              "checked": false,
+              "name": "标记"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
