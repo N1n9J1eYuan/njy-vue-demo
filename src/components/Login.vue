@@ -34,8 +34,6 @@ export default {
 
 <style lang='scss' scoped>
   .u-login-wrap {
-    min-width: 1200px;
-    height: 1000px;
     background-color: #333;
     position: relative;
   }

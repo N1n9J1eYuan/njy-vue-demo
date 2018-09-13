@@ -21,6 +21,16 @@ export default new Router({
       path: '/hello',
       name: 'hello',
       component: resolve => require.ensure([], () => resolve(require('../components/hello')))
+    },
+    {
+      path: '/systemManagement',
+      name: 'systemManagement',
+      component: resolve => require.ensure([], () => resolve(require('../components/systemManagement/index')))
+    },
+    {
+      path: '/salesManagement',
+      name: 'salesManagement',
+      component: resolve => require.ensure([], () => resolve(require('../components/salesManagement/index')))
     }
   ]
 })

@@ -3,14 +3,14 @@
     <h3 class='u-login-component-title'>用户登陆</h3>
     <div class='u-login-component-container'>
       <label>
-        <i class='u-login-component-icon u-login-component-icon-user'></i>
+        <i class='u-icon u-login-component-icon-user'></i>
         <input
           type="text"
           placeholder='用户名/手机号/邮箱号'
           v-model="userInfo.username">
       </label>
       <label>
-        <i class='u-login-component-icon u-login-component-icon-password'></i>
+        <i class='u-icon u-login-component-icon-password'></i>
         <input
           type="text"
           placeholder='密码'
@@ -99,13 +99,6 @@ export default {
           color: #ddd;
         }
       }
-    }
-    .u-login-component-icon {
-      width: 20px;
-      height: 20px;
-      background-repeat: no-repeat;
-      background-size: 100%;
-      margin-left: 10px;
     }
     .u-login-component-icon-user {
       background-image: url('../images/icon/login_user.png');
