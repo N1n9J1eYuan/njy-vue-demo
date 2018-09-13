@@ -9,7 +9,8 @@ const mutations = {
 }
 
 const actions = {
-  saveName ({ commit }, name) {
+  saveName ({ rootState, commit }, name) {
+    console.log(rootState)
     commit('SAVENAME', name)
   }
 }

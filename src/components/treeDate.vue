@@ -171,5 +171,18 @@ export default {
     .el-dialog__header {
       text-align: center;
     }
+    .el-tree-node__content{
+      .el-tree-node__expand-icon {
+        padding: 0px;
+        margin-right: 10px;
+        margin-top: -2px;
+        width: 15px;
+        height: 15px;
+        content: url("../images/home.png");
+      }
+      .el-tree-node__expand-icon.expanded{
+        transform: rotate(0deg);
+      }
+    }
   }
 </style>

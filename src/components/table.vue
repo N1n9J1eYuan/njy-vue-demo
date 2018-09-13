@@ -77,7 +77,7 @@ export default {
           name: '销售总监'
         }
       ],
-      showDialog: true,
+      showDialog: false,
       type: 1
     }
   },

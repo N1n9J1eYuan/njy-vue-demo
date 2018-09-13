@@ -3,11 +3,11 @@
     class='u-authorization-wrap'
     :title="{1: '编辑角色', 2: '授权角色', 3: '删除角色'}[type]"
     :visible.sync="dialogFormVisible">
-    <div v-if='type == 0'>
+    <div v-if='type == 1'>
       <p>修改角色</p>
       <el-input v-model="opt.input" placeholder="请输入内容"></el-input>
     </div>
-    <div v-else-if='type === 1'>
+    <div v-else-if='type === 2'>
       <el-tabs type="border-card" class='u-authorization-table'>
         <el-tab-pane v-for='(item, n1) in list' :key='n1' :label='item.name'>
           <CheckboxWrap :infoObj='item' :keys='"checkBoxWrap-" + n1'/>

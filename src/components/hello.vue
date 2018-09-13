@@ -57,6 +57,7 @@ export default {
   created () {
     this.obj = this.clone(listData)
     this.forEach(this.obj)
+    console.log(this)
   },
   computed: {
     ...mapState({
