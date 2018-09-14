@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'checkBox',
+  name: 'systemManagementCheckBox',
   props: {
     infoObj: Object,
     keys: String

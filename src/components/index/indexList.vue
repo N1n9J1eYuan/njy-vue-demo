@@ -2,6 +2,8 @@
   <ul class='u-index-list-wrap'>
     <router-link
       tag='li'
+      exact
+      active-class="active"
       v-for='(item, idx) in list'
       :key='item.name + idx'
       :to='item.path'>
@@ -46,7 +48,10 @@ export default {
     li {
       line-height: 45px;
       font-size: 16px;
-      margin-left: 20px;
+      padding-left: 20px;
+    }
+    .active {
+      background-color: #ee8523;
     }
   }
 </style>

@@ -6,6 +6,8 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
   routes: [
     {
       path: '/',
@@ -15,7 +17,7 @@ export default new Router({
     {
       path: '/login',
       name: 'Login',
-      component: resolve => require.ensure([], () => resolve(require('../components/Login')))
+      component: resolve => require.ensure([], () => resolve(require('../view/login/index')))
     },
     {
       path: '/hello',

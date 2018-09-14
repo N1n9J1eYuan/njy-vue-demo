@@ -42,7 +42,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <Authorization
+    <SystemManagementAuthorization
       :showDialog='showDialog'
       @changeDialogFlag='changeDialogFlag'
       :type='type'/>
@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import Authorization from './authorization'
+import SystemManagementAuthorization from './systemManagementAuthorization'
 export default {
-  name: 'tables',
+  name: 'systemManagementTable',
   data () {
     return {
       tableData: [
@@ -82,7 +82,7 @@ export default {
     }
   },
   components: {
-    Authorization
+    SystemManagementAuthorization
   },
   methods: {
     change (index, rows, n) {

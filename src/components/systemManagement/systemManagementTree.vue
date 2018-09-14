@@ -2,7 +2,6 @@
   <div class="treeData">
     <div class="custom-tree-container">
       <div class="block">
-        <p>使用 render-content</p>
         <el-tree
           :data="treeData"
           node-key="id"
@@ -12,26 +11,16 @@
         </el-tree>
       </div>
     </div>
-    <el-dialog class="u-edit-wrap" :title="dialogOpt.title" :visible.sync="editFlag">
-      <ul>
-        <li>
-          <p>上级部门</p>
-          <el-input v-model="dialogOpt.superiorDepartment" :disabled="true"></el-input>
-        </li>
-        <li>
-          <p> {{dialogOpt.type ? '新建名称' : '部门名称'}}</p>
-          <el-input v-model="dialogOpt.department"></el-input>
-        </li>
-      </ul>
-      <div slot="footer" class="el-dialog__footer">
-        <el-button type="primary" @click='saveDepartment'>保存</el-button>
-      </div>
-    </el-dialog>
+    <SystemManagementDialog
+      :editFlag='editFlag'
+      :dialogOpt='dialogOpt'
+      @changeEditFlag='changeEditFlag'/>
   </div>
 </template>
 
 <script>
 import listData from '@/flare.json'
+import SystemManagementDialog from './systemManagementDialog'
 export default {
   name: 'treeData',
   data () {
@@ -45,6 +34,9 @@ export default {
     let data = this.clone(listData)
     this.forEach(data)
     this.treeData.push(data)
+  },
+  components: {
+    SystemManagementDialog
   },
   methods: {
     // 处理数据
@@ -79,6 +71,8 @@ export default {
           </div>
         </div>
       )
+      // el-tree-node is-expanded is-focusable
+      // el-tree-node is-expanded is-current is-focusable
     },
     // 判断是否是最后一级 是的话显示删除按钮
     panduan (data, node) {
@@ -92,7 +86,7 @@ export default {
     },
     // 点击添加 / 编辑部门 函数
     append (node, data, n) {
-      this.dialogOpt.department = ''
+      if (this.dialogOpt.department) this.dialogOpt.department = ''
       const opt = {
         title: '新建下级部门',
         superiorDepartment: node.parent.label,
@@ -109,10 +103,9 @@ export default {
       this.editFlag = true
       this.dialogOpt = Object.assign({}, opt)
     },
-    // 点击保存
-    saveDepartment () {
-      console.log(this.dialogOpt)
-      this.editFlag = false
+    // 改变展示dialog开关
+    changeEditFlag (bool) {
+      this.editFlag = bool
     },
     // 点击设置
     setup (e) {
@@ -128,10 +121,11 @@ export default {
     },
     // 点击删除
     remove (node, data) {
-      const parent = node.parent
-      const children = parent.data.children || parent.data
-      const index = children.findIndex(d => d.id === data.id)
-      children.splice(index, 1)
+      const opt = {
+        title: '删除部门',
+        type: 0
+      }
+      this.showDialog(opt)
     }
   }
 }
@@ -141,7 +135,7 @@ export default {
   .treeData {
     .custom-tree-container {
       width: 300px;
-      margin: 50px auto;
+      margin: 30px auto 0;
     }
     .custom-tree-span {
       position: relative;
@@ -165,11 +159,19 @@ export default {
         }
       }
     }
+    .custom-tree-node {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      padding-right: 8px;
+      &:hover .custom-tree-span {
+        display: block;
+      }
+    }
     .el-tree-node > .el-tree-node__children {
       overflow: initial;
-    }
-    .el-dialog__header {
-      text-align: center;
     }
     .el-tree-node__content{
       .el-tree-node__expand-icon {
@@ -178,7 +180,7 @@ export default {
         margin-top: -2px;
         width: 15px;
         height: 15px;
-        content: url("../images/home.png");
+        content: url("../../images/home.png");
       }
       .el-tree-node__expand-icon.expanded{
         transform: rotate(0deg);

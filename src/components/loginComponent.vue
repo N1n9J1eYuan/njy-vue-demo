@@ -1,25 +1,25 @@
 <template>
-  <div class='u-login-component-wrap'>
-    <h3 class='u-login-component-title'>用户登陆</h3>
-    <div class='u-login-component-container'>
+  <div class='u-login-form-wrap'>
+    <h3 class='u-login-form-title'>用户登陆</h3>
+    <div class='u-login-form-container'>
       <label>
-        <i class='u-icon u-login-component-icon-user'></i>
+        <i class='u-icon u-login-form-icon-user'></i>
         <input
           type="text"
           placeholder='用户名/手机号/邮箱号'
           v-model="userInfo.username">
       </label>
       <label>
-        <i class='u-icon u-login-component-icon-password'></i>
+        <i class='u-icon u-login-form-icon-password'></i>
         <input
           type="text"
           placeholder='密码'
           v-model="userInfo.password">
       </label>
-      <p class='u-login-component-error'>{{ hintText }}</p>
+      <p class='u-login-form-error'>{{ hintText }}</p>
     </div>
     <el-button
-      class='u-login-component-btn'
+      class='u-login-form-btn'
       type="primary"
       @click='login'>登 录</el-button>
   </div>
@@ -59,12 +59,10 @@ export default {
 </script>
 
 <style lang='scss'>
-  .u-login-component-wrap {
-    position: absolute;
-    top: 100px;
-    right: 200px;
-    width: 300px;
-    height: 260px;
+  .u-login-form-wrap {
+    float: right;
+    width: 340px;
+    height: 300px;
     padding: 20px;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, .2);
@@ -72,10 +70,12 @@ export default {
     color: #fff;
     display: -webkit-flex;
     flex-direction: column;
-    .u-login-component-title {
+    margin-top: 130px;
+    margin-right: 30px;
+    .u-login-form-title {
       text-align: center;
     }
-    .u-login-component-container {
+    .u-login-form-container {
       position: relative;
       height: 150px;
     }
@@ -100,16 +100,17 @@ export default {
         }
       }
     }
-    .u-login-component-icon-user {
+    .u-login-form-icon-user {
       background-image: url('../images/icon/login_user.png');
     }
-    .u-login-component-icon-password {
+    .u-login-form-icon-password {
       background-image: url('../images/icon/login_password.png');
     }
-    .u-login-component-btn {
+    .u-login-form-btn {
       font-size: 16px;
+      margin-top: 18px;
     }
-    .u-login-component-error {
+    .u-login-form-error {
       color: red;
       position: absolute;
       bottom: 8px;

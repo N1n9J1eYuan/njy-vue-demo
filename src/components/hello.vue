@@ -21,7 +21,7 @@
         </el-row>
       </div>
     </el-dialog>
-    <TreeDate/>
+    <SystemManagementTree/>
     <Table/>
   </div>
 </template>
@@ -30,8 +30,8 @@
 import { mapState, mapActions } from 'vuex'
 import listData from '@/flare.json'
 import echarts from 'echarts'
-import TreeDate from './treeDate'
-import Table from './table'
+import SystemManagementTree from './systemManagement/systemManagementTree'
+import Table from './systemManagement/systemManagementTable'
 export default {
   name: 'HelloWorld',
   data () {
@@ -51,7 +51,7 @@ export default {
     }
   },
   components: {
-    TreeDate,
+    SystemManagementTree,
     Table
   },
   created () {

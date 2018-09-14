@@ -23,7 +23,6 @@ export default {
     indexList
   },
   created () {
-    console.log()
     this.isLogin = window.location.href.indexOf('login') > -1 || false
   },
   watch: {
@@ -47,7 +46,7 @@ export default {
     top: 0;
     bottom: 0;
     width: 100%;
-    min-width: 1340px;
+    min-width: 1140px;
     min-height: 600px;
     display: -webkit-flex;
     flex-direction: column;

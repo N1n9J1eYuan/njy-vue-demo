@@ -10,7 +10,7 @@
     <div v-else-if='type === 2'>
       <el-tabs type="border-card" class='u-authorization-table'>
         <el-tab-pane v-for='(item, n1) in list' :key='n1' :label='item.name'>
-          <CheckboxWrap :infoObj='item' :keys='"checkBoxWrap-" + n1'/>
+          <SystemManagementCheckBox :infoObj='item' :keys='"checkBoxWrap-" + n1'/>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -32,7 +32,7 @@
     3 -> 删除
 */
 import authorizationJson from './authorization.json'
-import CheckboxWrap from './checkBox'
+import SystemManagementCheckBox from './systemManagementCheckBox'
 export default {
   name: 'authorization',
   data () {
@@ -51,7 +51,7 @@ export default {
     type: Number
   },
   components: {
-    CheckboxWrap
+    SystemManagementCheckBox
   },
   created () {
     this.dialogFormVisible = this.showDialog
