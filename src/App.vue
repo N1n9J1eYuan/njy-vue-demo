@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class='u-outerwrapper'>
+  <div id="app" class='u-outerwrapper' @click="isDo()">
     <IndexHeader v-if='!isLogin'/>
     <div class='u-outerwrapper-container'>
       <indexList v-if='!isLogin'/>
@@ -15,7 +15,11 @@ export default {
   name: 'App',
   data () {
     return {
-      isLogin: false
+      isLogin: false,
+      lastTime: null,
+      currentTime: null,
+      // timeOut: 10 * 60 * 1000//设置超时时间： 10分钟
+      timeOut: 10 * 1000
     }
   },
   components: {
@@ -24,6 +28,17 @@ export default {
   },
   created () {
     this.isLogin = window.location.href.indexOf('login') > -1 || false
+  },
+  methods: {
+    isDo () {
+      this.currentTime = new Date().getTime()
+      if (this.currentTime - this.lastTime > this.timeOut) {
+        // 这里写状态已过期后执行的操作
+        // console.log('该退出了')
+      } else {
+        this.lastTime = new Date().getTime()
+      }
+    }
   },
   watch: {
     $route (to, from) {

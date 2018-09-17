@@ -57,6 +57,9 @@ export default {
 
 <style lang='scss'>
   .u-edit-wrap {
+    .el-dialog {
+      width: 400px;
+    }
     .el-dialog__header {
       text-align: center;
     }

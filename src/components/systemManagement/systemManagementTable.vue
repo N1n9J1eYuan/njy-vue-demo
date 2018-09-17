@@ -1,5 +1,6 @@
 <template>
   <div class='u-table-wrap'>
+    <el-button type="primary" class='u-table-add' @click="change(null, null, 4)">添加角色</el-button>
     <el-table
       :data="tableData"
       border
@@ -34,7 +35,7 @@
             授权
           </el-button>
           <el-button
-            @click="deleteRow(scope.$index, tableData, 3)"
+            @click="change(scope.$index, tableData, 3)"
             type="text"
             size="small">
             删除
@@ -44,8 +45,9 @@
     </el-table>
     <SystemManagementAuthorization
       :showDialog='showDialog'
+      :options='options'
       @changeDialogFlag='changeDialogFlag'
-      :type='type'/>
+      @sendData='getData'/>
   </div>
 </template>
 
@@ -78,7 +80,8 @@ export default {
         }
       ],
       showDialog: false,
-      type: 1
+      type: 1,
+      options: {}
     }
   },
   components: {
@@ -87,15 +90,17 @@ export default {
   methods: {
     change (index, rows, n) {
       this.showDialog = true
-      this.type = n
-    },
-    deleteRow (index, rows, n) {
-      this.showDialog = true
-      this.type = n
-      console.log(index)
+      this.options.type = n
+      if (n === 1) this.options.name = rows[index].name
     },
     changeDialogFlag (bool) {
       this.showDialog = bool
+    },
+    getData (data) {
+      if (this.type === 4) {
+        // /roles params -> name
+        console.log(data)
+      }
     }
   }
 }
@@ -105,5 +110,8 @@ export default {
   .u-table-wrap {
     width: 500px;
     margin: 20px auto;
+    .u-table-add {
+      margin-bottom: 20px;
+    }
   }
 </style>

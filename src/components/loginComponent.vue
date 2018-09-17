@@ -7,14 +7,14 @@
         <input
           type="text"
           placeholder='用户名/手机号/邮箱号'
-          v-model="userInfo.username">
+          v-model="userInfo.langlibUserName">
       </label>
       <label>
         <i class='u-icon u-login-form-icon-password'></i>
         <input
           type="text"
           placeholder='密码'
-          v-model="userInfo.password">
+          v-model="userInfo.langlibPwd">
       </label>
       <p class='u-login-form-error'>{{ hintText }}</p>
     </div>
@@ -31,8 +31,8 @@ export default {
   data () {
     return {
       userInfo: {
-        username: '',
-        password: ''
+        langlibUserName: '',
+        langlibPwd: ''
       },
       hintText: ''
     }
@@ -43,7 +43,7 @@ export default {
   methods: {
     login () {
       if (this.hintText) this.hintText = ''
-      if (!this.userInfo.username || !this.userInfo.password) {
+      if (!this.userInfo.langlibUserName || !this.userInfo.langlibPwd) {
         this.hintText = '用户名或密码不能为空。'
       } else {
         this.$emit('loginUserInfo', this.userInfo)

@@ -52,7 +52,6 @@ export default {
     },
     querySales () {
       if (!this.salesInfo) {
-        console.log('')
         this.$alert('请输入查询销售人员信息', '提示', {
           confirmButtonText: '确定'
         })

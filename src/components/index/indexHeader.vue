@@ -10,7 +10,17 @@ export default {
   name: 'indexHeader',
   methods: {
     signOut () {
-      console.log(999)
+      this.$confirm('确定要退出？', '注销', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消'
+      }).then(() => {
+        this.setCookie('langlibUserName', '')
+        this.$router.push({
+          path: '/login'
+        })
+      }).catch(() => {
+        console.log(999)
+      })
     }
   }
 }
