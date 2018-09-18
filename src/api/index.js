@@ -4,9 +4,10 @@ import * as post from './post'
 
 axios.interceptors.request.use(
   config => {
-    // if (token) {
-    //   config.headers.Authorization = token;
-    // }
+    const token = 'asfnhyuiw889kjnggn'
+    if (token) {
+      config.headers.token = token
+    }
     return config
   },
   err => {

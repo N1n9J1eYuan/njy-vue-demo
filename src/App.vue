@@ -28,6 +28,9 @@ export default {
   },
   created () {
     this.isLogin = window.location.href.indexOf('login') > -1 || false
+    this.$fetch.get.getName().then(rs => {
+      console.log(rs)
+    })
   },
   methods: {
     isDo () {

@@ -1,15 +1,5 @@
 <template>
   <el-dialog class="u-edit-wrap" :title="dialogOpt.title" :visible.sync="flag">
-    <!-- <ul v-if='dialogOpt.type'>
-      <li>
-        <p>上级部门</p>
-        <el-input v-model="dialogOpt.superiorDepartment" :disabled="true"></el-input>
-      </li>
-      <li>
-        <p> {{dialogOpt.type ? '新建名称' : '部门名称'}}</p>
-        <el-input v-model="dialogOpt.department"></el-input>
-      </li>
-    </ul> -->
     <div v-if='dialogOpt.type === 4'>
       <div class='u-edit-query-input'>
         <span>查询销售</span>
@@ -73,6 +63,9 @@ export default {
 
 <style lang='scss'>
   .u-edit-wrap {
+    .el-dialog {
+      width: 400px;
+    }
     .el-dialog__header {
       text-align: center;
     }

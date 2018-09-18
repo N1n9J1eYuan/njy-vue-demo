@@ -6,8 +6,8 @@
         <el-input v-model="dialogOpt.superiorDepartment" :disabled="true"></el-input>
       </li>
       <li>
-        <p> {{dialogOpt.type ? '新建名称' : '部门名称'}}</p>
-        <el-input v-model="dialogOpt.department"></el-input>
+        <p> {{dialogOpt.type === 1 ? '新建名称' : '部门名称'}}</p>
+        <el-input v-model="dialogOpt.departmentName" placeholder='请输入部门名称'></el-input>
       </li>
     </ul>
     <p v-else>{{ deleteText }}</p>
@@ -37,6 +37,7 @@ export default {
   methods: {
     saveDepartment () {
       console.log(this.dialogOpt)
+      this.$emit('sendData', this.dialogOpt)
       this.$emit('changeEditFlag', false)
     },
     chooseDelete (n) {

@@ -14,7 +14,8 @@
     <SystemManagementDialog
       :editFlag='editFlag'
       :dialogOpt='dialogOpt'
-      @changeEditFlag='changeEditFlag'/>
+      @changeEditFlag='changeEditFlag'
+      @sendData='getData'/>
   </div>
 </template>
 
@@ -64,7 +65,7 @@ export default {
                 <span on-click={ () => this.append(node, data, 1) }>新建下级部门</span>
               </li>
               <li>
-                <span on-click={ () => this.append(node, data, 0) }>编辑部门</span>
+                <span on-click={ () => this.append(node, data, 2) }>编辑部门</span>
               </li>
               { this.panduan(data, node) }
             </ul>
@@ -86,14 +87,14 @@ export default {
     },
     // 点击添加 / 编辑部门 函数
     append (node, data, n) {
-      if (this.dialogOpt.department) this.dialogOpt.department = ''
+      if (this.dialogOpt.departmentName) this.dialogOpt.department = ''
       const opt = {
         title: '新建下级部门',
         superiorDepartment: node.parent.label,
         type: n
       }
-      if (!n) {
-        opt.department = data.label
+      if (n === 2) {
+        opt.departmentName = data.label
         opt.title = '编辑部门信息'
       }
       this.showDialog(opt)
@@ -126,6 +127,10 @@ export default {
         type: 0
       }
       this.showDialog(opt)
+    },
+    getData (data) {
+      // /departments params -> {departmentName, parentDepartmentId, special}
+      console.log(data)
     }
   }
 }
