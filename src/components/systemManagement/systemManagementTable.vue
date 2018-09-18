@@ -59,23 +59,23 @@ export default {
     return {
       tableData: [
         {
-          date: '2016-05-02',
+          id: '2016-05-02',
           name: '电销人员'
         },
         {
-          date: '2016-05-04',
+          id: '2016-05-04',
           name: '网销人员'
         },
         {
-          date: '2016-05-01',
+          id: '2016-05-01',
           name: '电销主管'
         },
         {
-          date: '2016-05-03',
+          id: '2016-05-03',
           name: '网销主管'
         },
         {
-          date: '2016-05-03',
+          id: '2016-05-03',
           name: '销售总监'
         }
       ],
@@ -87,20 +87,75 @@ export default {
   components: {
     SystemManagementAuthorization
   },
+  created () {
+    // 获取所有角色信息
+    // this.getRoles()
+  },
   methods: {
+    getRoles () {
+      // const result = this.$fetch.get.getRoles()
+      // result.then(rs => {
+      //   this.tableData = rs.data
+      // })
+    },
     change (index, rows, n) {
       this.showDialog = true
       this.options.type = n
-      if (n === 1) this.options.name = rows[index].name
+      if (n !== 4) this.options.id = rows[index].id
+      if (n === 1) his.options.name = rows[index].name
     },
     changeDialogFlag (bool) {
       this.showDialog = bool
     },
     getData (data) {
-      if (this.type === 4) {
-        // /roles params -> name
-        console.log(data)
+      switch (true) {
+        case this.options.type === 1:
+          this.changeRoles()
+          break
+        case this.options.type === 2:
+          break
+        case this.options.type === 3:
+          this.deleteRoles()
+          break
+        default:
+          this.addRoles(data)
       }
+    },
+    // 添加角色
+    addRoles (name) {
+      // const result = this.$fetch.post.addRoles({name: name})
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.$alert('添加成功', '提示', {
+      //       confirmButtonText: '确定'
+      //     })
+      //     this.getRoles()
+      //   }
+      // })
+    },
+    // 删除角色
+    deleteRoles () {
+      // const result = this.$fetch.post.deleteRoles({id: this.options.id})
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.$alert('删除成功', '提示', {
+      //       confirmButtonText: '确定'
+      //     })
+      //     this.getRoles()
+      //   }
+      // })
+    },
+    // 修改名称
+    changeRoles () {
+      // const result = this.$fetch.put.changeRoles({id: this.options.id, name: this.options.name})
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.$alert('修改成功', '提示', {
+      //       confirmButtonText: '确定'
+      //     })
+      //     this.getRoles()
+      //   }
+      // })
     }
   }
 }

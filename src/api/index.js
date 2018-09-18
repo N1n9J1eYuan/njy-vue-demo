@@ -1,6 +1,8 @@
 import axios from 'axios'
 import * as get from './get'
 import * as post from './post'
+import * as put from './put'
+import * as deletes from './delete'
 
 axios.interceptors.request.use(
   config => {
@@ -26,5 +28,7 @@ axios.interceptors.response.use(
 
 export default {
   get,
-  post
+  post,
+  put,
+  deletes
 }

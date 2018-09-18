@@ -41,7 +41,6 @@
 
 <script>
 import LoginComponent from '@/components/loginComponent'
-import { mapActions } from 'vuex'
 export default {
   name: 'login',
   data () {
@@ -53,14 +52,21 @@ export default {
     LoginComponent
   },
   methods: {
-    ...mapActions('login', ['saveUserInfo']),
     // 获取登陆信息 并发送登陆请求
     getLoginUserInfo (userInfo) {
       if (this.loginErrorMessage) this.loginErrorMessage = ''
       // 请求登陆接口后 储存返回用户信息并跳转页面
-      // /users/login
+      // const result = this.$fetch.get.userLogin(userInfo)
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.setCookie('langlibUserName', userInfo.langlibUserName)
+      //     this.saveUserInfo(userInfo)
+      //     this.$router.push({
+      //       path: '/'
+      //     })
+      //   }
+      // })
       this.setCookie('langlibUserName', userInfo.langlibUserName)
-      this.saveUserInfo(userInfo)
       this.$router.push({
         path: '/'
       })
