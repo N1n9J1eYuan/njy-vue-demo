@@ -62,7 +62,7 @@ export default {
       if (this.options.type === 4) {
         this.$emit('sendData', this.roleName)
       } else if (this.options.type === 1) {
-        this.$emit('sendData', this.roleName)
+        this.$emit('sendData', this.options)
       } else {
         console.log(document.querySelectorAll('input[data-id=authorizationCheckBox]:checked'))
       }

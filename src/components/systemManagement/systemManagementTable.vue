@@ -96,13 +96,13 @@ export default {
       // const result = this.$fetch.get.getRoles()
       // result.then(rs => {
       //   this.tableData = rs.data
-      // })
+      // }, err => {})
     },
     change (index, rows, n) {
       this.showDialog = true
       this.options.type = n
       if (n !== 4) this.options.id = rows[index].id
-      if (n === 1) his.options.name = rows[index].name
+      if (n === 1) this.options.name = rows[index].name
     },
     changeDialogFlag (bool) {
       this.showDialog = bool
@@ -110,7 +110,7 @@ export default {
     getData (data) {
       switch (true) {
         case this.options.type === 1:
-          this.changeRoles()
+          this.changeRoles({name: data.name})
           break
         case this.options.type === 2:
           break
@@ -146,8 +146,8 @@ export default {
       // })
     },
     // 修改名称
-    changeRoles () {
-      // const result = this.$fetch.put.changeRoles({id: this.options.id, name: this.options.name})
+    changeRoles (params) {
+      // const result = this.$fetch.put.changeRoles({id: this.options.id, name: params.name})
       // result.then(rs => {
       //   if (rs.code === 200) {
       //     this.$alert('修改成功', '提示', {

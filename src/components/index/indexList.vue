@@ -1,18 +1,45 @@
 <template>
   <ul class='u-index-list-wrap'>
-    <router-link
-      tag='li'
-      exact
-      active-class="active"
-      v-for='(item, idx) in list'
-      :key='item.name + idx'
-      :to='item.path'>
-      {{ item.text }}
-    </router-link>
+    <el-row class="tac">
+      <el-col :span="12">
+        <el-menu
+          background-color="#030303"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+          :default-active="$route.path"
+          router
+          @open="handleOpen"
+          @close="handleClose">
+          <div v-for='(item, idx) in list' :key='"wrap" + idx'>
+            <el-submenu
+              :index="item.name"
+              v-if='item.children'>
+              <template slot="title">
+                <span>{{ item.text }}</span>
+              </template>
+              <el-menu-item-group
+                v-for='(child, n) in item.children'
+                :key='"child" + n'>
+                <el-menu-item
+                  :index="child.path">
+                  <span slot="title">{{ child.text }}</span>
+                </el-menu-item>
+              </el-menu-item-group>
+            </el-submenu>
+            <el-menu-item
+              :index="item.path"
+              v-else>
+              <span slot="title">{{ item.text }}</span>
+            </el-menu-item>
+          </div>
+        </el-menu>
+      </el-col>
+    </el-row>
   </ul>
 </template>
 
 <script>
+import baseUrl from '@/api/baseUrl'
 export default {
   name: 'indexList',
   data () {
@@ -24,9 +51,15 @@ export default {
           text: '首页'
         },
         {
-          path: '/systemManagement',
           name: 'systemManagement',
-          text: '系统管理'
+          path: '/systemManagement',
+          text: '系统管理',
+          children: [
+            {
+              text: '组织架构',
+              path: '/systemManagement'
+            }
+          ]
         },
         {
           path: '/salesManagement',
@@ -34,6 +67,14 @@ export default {
           text: '销售人员管理'
         }
       ]
+    }
+  },
+  methods: {
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath)
+    },
+    handleClose (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }
@@ -45,13 +86,21 @@ export default {
     height: 100%;
     background-color: #030303;
     color: #fff;
-    li {
-      line-height: 45px;
-      font-size: 16px;
-      padding-left: 20px;
+    .el-menu-item.is-active {
+      background-color: #ee8523 !important;
+      color: #fff !important;
     }
-    .active {
-      background-color: #ee8523;
+    .el-menu {
+      border-right: none;
+    }
+    .el-col-12 {
+      width: 100%;
+    }
+    .el-submenu .el-menu-item {
+      min-width: 160px;
+    }
+    .el-menu-item-group {
+      padding-left: 0;
     }
   }
 </style>

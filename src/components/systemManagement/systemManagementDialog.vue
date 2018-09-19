@@ -36,12 +36,11 @@ export default {
   },
   methods: {
     saveDepartment () {
-      console.log(this.dialogOpt)
+      console.log(this.dialogOpt, 888888)
       this.$emit('sendData', this.dialogOpt)
       this.$emit('changeEditFlag', false)
     },
     chooseDelete (n) {
-      if (n) {}
       this.$emit('changeEditFlag', false)
     }
   },
