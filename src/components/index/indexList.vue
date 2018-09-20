@@ -7,9 +7,7 @@
           text-color="#fff"
           active-text-color="#ffd04b"
           :default-active="$route.path"
-          router
-          @open="handleOpen"
-          @close="handleClose">
+          router>
           <div v-for='(item, idx) in list' :key='"wrap" + idx'>
             <el-submenu
               :index="item.name"
@@ -39,7 +37,6 @@
 </template>
 
 <script>
-import baseUrl from '@/api/baseUrl'
 export default {
   name: 'indexList',
   data () {
@@ -70,12 +67,6 @@ export default {
     }
   },
   methods: {
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
-    }
   }
 }
 </script>
@@ -96,8 +87,10 @@ export default {
     .el-col-12 {
       width: 100%;
     }
-    .el-submenu .el-menu-item {
+    .el-menu-item, .el-submenu__title{
       min-width: 160px;
+      height: 45px;
+      line-height: 45px;
     }
     .el-menu-item-group {
       padding-left: 0;

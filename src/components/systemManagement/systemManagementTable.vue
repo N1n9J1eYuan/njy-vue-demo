@@ -18,7 +18,6 @@
         width="180">
       </el-table-column>
       <el-table-column
-        width="280"
         align='center'
         label="操作">
         <template slot-scope="scope">

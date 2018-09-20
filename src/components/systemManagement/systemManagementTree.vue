@@ -1,6 +1,7 @@
 <template>
   <div class="treeData">
-    <div class="custom-tree-container">
+    <el-button type="primary" @click='append(null, null, 4)' v-if='!treeData.length'>添加部门</el-button>
+    <div class="custom-tree-container" v-else>
       <div class="block">
         <el-tree
           :data="treeData"
@@ -35,6 +36,7 @@ export default {
     let data = this.clone(listData)
     this.forEach(data)
     this.treeData.push(data)
+    this.getDepartments()
   },
   components: {
     SystemManagementDialog
@@ -72,8 +74,6 @@ export default {
           </div>
         </div>
       )
-      // el-tree-node is-expanded is-focusable
-      // el-tree-node is-expanded is-current is-focusable
     },
     // 判断是否是最后一级 是的话显示删除按钮
     panduan (data, node) {
@@ -88,10 +88,20 @@ export default {
     // 点击添加 / 编辑部门 函数
     append (node, data, n) {
       if (this.dialogOpt.departmentName) this.dialogOpt.department = ''
-      const opt = {
-        title: '新建下级部门',
-        superiorDepartment: node.parent.label,
-        type: n
+      let opt = {}
+      if (n !== 4) {
+        opt = {
+          title: '新建下级部门',
+          superiorDepartment: node.parent.label,
+          parentDepartmentId: node.parent.id,
+          type: n,
+          id: data.id
+        }
+      } else {
+        opt = {
+          title: '新建下级部门',
+          type: 1
+        }
       }
       if (n === 2) {
         opt.departmentName = data.label
@@ -124,13 +134,67 @@ export default {
     remove (node, data) {
       const opt = {
         title: '删除部门',
+        id: data.id,
         type: 0
       }
       this.showDialog(opt)
     },
     getData (data) {
-      // /departments params -> {departmentName, parentDepartmentId, special}
-      console.log(data)
+      switch (true) {
+        case this.dialogOpt.type === 1:
+          this.addDepartments(data)
+          break
+        case this.dialogOpt.type === 2:
+          this.changeDepartments(data)
+          break
+        default:
+          this.deleteDepartments(data)
+      }
+    },
+    // 获取组织架构
+    getDepartments () {
+      // const result = this.$fetch.get.getDepartments()
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.treeData = rs.data
+      //   }
+      // })
+    },
+    // 填加部门
+    addDepartments (data) {
+      // const params = {
+      //     departmentName: data.departmentName,
+      //     parentDepartmentId: data.parentDepartmentId
+      //   }
+      // const result = this.$fetch.post.addDepartments(params)
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.getDepartments()
+      //   }
+      // })
+    },
+    // 修改部门名称
+    changeDepartments (data) {
+      // const params = {
+      //     departmentName: data.departmentName,
+      //     id: data.id,
+      //     code: data.code
+      //   }
+      // const result = this.$fetch.put.changeDepartments(params)
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.getDepartments()
+      //   }
+      // })
+    },
+    // 删除部门
+    deleteDepartments (data) {
+      // const result = this.$fetch.delete.deleteDepartments({id: data.id})
+      // result.then(rs => {
+      //   if (rs.code === 200) {
+      //     this.getDepartments()
+      //   }
+      // })
     }
   }
 }

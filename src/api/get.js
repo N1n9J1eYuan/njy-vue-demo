@@ -14,4 +14,8 @@ export const getRoles = () => {
 export const getRoleModulePermissions = (userId) => {
   return axios.get('/roleModulePermissions/' + userId)
 }
-// /departments
+
+export const getDepartments = (params) => {
+  let query = params || {}
+  return axios.get('/departments', query)
+}
