@@ -35,7 +35,7 @@
       <div class="u-login-hotline">
           <i></i>咨询热线 400-656-9559
       </div>
-  </div>
+    </div>
   </div>
 </template>
 
