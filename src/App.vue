@@ -1,6 +1,7 @@
 <template>
   <div id="app" class='u-outerwrapper' @click="isDo()">
     <IndexHeader v-if='!isLogin'/>
+    000
     <div class='u-outerwrapper-container'>
       <indexList v-if='!isLogin'/>
       <router-view/>
